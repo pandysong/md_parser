@@ -23,8 +23,21 @@ def level_iter(para):
 
 
 def sub_para_iter(para, level):
-    '''iterate through paragraphs which depth = level
-    if the parent Paragraph is yield already, its children will not be yield
+    '''iterate through paragraphs of which depth == level
+    for example in following case:
+
+    # 1
+    ## 2
+    ## 3
+    # 4
+    ## 5
+    ## 6
+
+    It will yield paragraph #1 and #4 (but its content is removed)
+    The yield #1 represents only includes its children #2 and #3
+    The yield #4 represents only includes its children ##5 and ##6
+
+    The purpose of this iterator is to gather all the content under level `level`
     '''
     if para.head.level == level and para.children:
         yield Paragraph(para.head, content=[], link_target=[], children=para.children)
