@@ -19,7 +19,8 @@ class TestMdPraser(unittest.TestCase):
             (Headline(level=3, name='R0', title="In.0: Don't panic!"), 27),
             (Headline(level=2, name='SS-struct',
                       title='In.struct: The structure of this document'), 29),
-            (Headline(level=1, name='S-introduction', title='In: Introduction'), 10),
+            (Headline(level=1, name='S-introduction',
+                      title='In: Introduction'), 10),
         )
 
         curdir = os.path.dirname(__file__)

@@ -37,10 +37,12 @@ def sub_para_iter(para, level):
     The yield #1 represents only includes its children #2 and #3
     The yield #4 represents only includes its children ##5 and ##6
 
-    The purpose of this iterator is to gather all the content under level `level`
+    The purpose of this iterator is to gather all the content under level
+    `level`
     '''
     if para.head.level == level and para.children:
-        yield Paragraph(para.head, content=[], link_target=[], children=para.children)
+        yield Paragraph(para.head, content=[], link_target=[],
+                        children=para.children)
     else:
         for p in para.children:
             yield from sub_para_iter(p, level)
